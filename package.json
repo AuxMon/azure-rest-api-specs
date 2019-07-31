@@ -10,17 +10,20 @@
   "description": "Tests for Azure REST API Specifications",
   "license": "MIT",
   "devDependencies": {
+    "@azure/avocado": "^0.4.1",
+    "@azure/rest-api-specs-scripts": "^0.4.0",
+    "@ts-common/commonmark-to-markdown": "^1.2.0",
+    "@ts-common/fs": "0.2.0",
+    "@ts-common/iterator": "^0.3.6",
+    "@types/js-yaml": "^3.12.1",
+    "@types/mocha": "^5.2.6",
+    "cspell": "^4.0.12",
+    "js-yaml": "^3.13.1",
+    "json-schema-ref-parser": "^6.1.0",
     "mocha": "*",
-    "async": "^2.1.4",
-    "glob": "^5.0.14",
-    "json-schema-ref-parser": "^3.1.2",
-    "lodash": "^3.10.1",
-    "request": "^2.61.0",
-    "z-schema": "^3.16.1",
-    "oav": "^0.4.1",
-    "underscore": "^1.8.3",
-    "js-yaml": "^3.8.2",
-    "azure-storage": "^2.1.0"
+    "ts-node": "^8.1.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.4.4"
   },
   "homepage": "https://github.com/azure/azure-rest-api-specs",
   "repository": {
@@ -31,6 +34,9 @@
     "url": "http://github.com/azure/azure-rest-api-specs/issues"
   },
   "scripts": {
-    "test": "mocha -t 500000"
+    "test": "tsc && mocha -t 500000 --reporter min",
+    "spellcheck": "cspell \"specification/**/*.json\"",
+    "tsc": "tsc",
+    "multiapi": "ts-node ./scripts/multiapi.ts"
   }
 }
